@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Post;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\LoginController;
 
 use App\Models\Category;
-use App\Models\User;
+// use App\Models\User;
+// use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,3 +61,5 @@ Route::get('/categories', function() {
 //         'posts' => $author->posts->load('category', 'author'),
 //     ]);
 // });
+
+Route::get('/login', [LoginController::class, 'index']);
