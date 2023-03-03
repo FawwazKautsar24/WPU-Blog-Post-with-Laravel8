@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="row justify-content-center">
-        <div class="col-md-4">
+        <div class="col-lg-4">
             <main class="form-signin">
                 <h1 class="h3 mb-3 fw-normal text-center">Please Login</h1>
                 <form>
