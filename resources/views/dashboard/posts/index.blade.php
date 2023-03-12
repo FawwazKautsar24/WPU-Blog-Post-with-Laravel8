@@ -6,29 +6,31 @@
     </div>
 
     <div class="table-responsive col-lg-8">
-        <table class="table table-striped table-sm">
-          <thead>
+      <a href="/dashboard/posts/create" class="btn btn-primary mb-3">Create new post</a>
+        
+      <table class="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Category</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($posts as $post)
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Title</th>
-              <th scope="col">Category</th>
-              <th scope="col">Action</th>
+              <td>{{ $loop->iteration }}</td>
+              <td>{{ $post->title }}</td>
+              <td>{{ $post->category->name }}</td>
+              <td>
+                <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>
+                <a href="" class="badge bg-warning"><span data-feather="edit"></span></a>
+                <a href="" class="badge bg-danger"><span data-feather="x-circle"></span></a>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            @foreach ($posts as $post)
-              <tr>
-                <td>{{ $loop->iteration }}</td>
-                <td>{{ $post->title }}</td>
-                <td>{{ $post->category->name }}</td>
-                <td>
-                  <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>
-                  <a href="" class="badge bg-warning"><span data-feather="edit"></span></a>
-                  <a href="" class="badge bg-danger"><span data-feather="x-circle"></span></a>
-                </td>
-              </tr>
-            @endforeach
-          </tbody>
-        </table>
-      </div>
+          @endforeach
+        </tbody>
+      </table>
+    </div>
 @endsection
